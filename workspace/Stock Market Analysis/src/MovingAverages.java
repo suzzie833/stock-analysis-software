@@ -14,9 +14,9 @@ public class MovingAverages {
      * @return an array of simple moving average which
      * starts at the index of (period - 1)
      */
-    public static double[] simpleMovingAverage(double[] closingPrices, int periodInDays) {
+    public double[] simpleMovingAverage(double[] closingPrices, int periodInDays) {
         int dataPoints = closingPrices.length;
-        int resultLength = dataPoints - periodInDays;
+        int resultLength = dataPoints - (periodInDays- 1); 
         double[] result = new double[resultLength];
         for (int i = 0; i < resultLength; i++) {
             result[i] = ArrayOperations.sliceAverage(closingPrices, i, i + periodInDays - 1);
